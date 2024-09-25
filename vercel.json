@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    {
+      "source": "/EuropaPress.rss",
+      "destination": "/api/EuropaPress.rss"
+    }
+  ]
+}
+
