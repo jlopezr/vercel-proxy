@@ -1,0 +1,1 @@
+from ../lib/europapress-rss import get_merged_feed
