@@ -1,5 +1,5 @@
 import tempfile
-import requests
+import urllib
 from rss import get_rss
 from rss_reader import read_rss
 from videometadata import Feed, Movie
@@ -19,8 +19,14 @@ feeds = [
 
 def read_feed(feed_url):
     # Download RSS to a temporary file
-    response = requests.get(feed_url)
-    response.raise_for_status()
+    try:
+        with urllib.request.urlopen(feed_url) as response:
+            content = response.read()
+            return content
+    except urllib.error.HTTPError as e:
+        raise Exception(f"HTTP error occurred: {e.code} {e.reason}")
+    except urllib.error.URLError as e:
+        raise Exception(f"URL error occurred: {e.reason}")
 
     with tempfile.NamedTemporaryFile(delete=False) as tmp_file:
         tmp_file.write(response.content)
