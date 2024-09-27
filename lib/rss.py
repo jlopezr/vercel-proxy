@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 from typing import List
 from xml.dom import minidom
 from datetime import datetime
-from lib.videometadata import Movie, Episode, Feed
+from .videometadata import Movie, Episode, Feed
 
 def defaults(value, default):
     return value if value not in [None, ""] else default

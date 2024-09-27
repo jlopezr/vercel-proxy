@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET  
 from typing import Tuple
 from datetime import datetime
-from lib.videometadata import Feed, VideoMetadata
+from .videometadata import Feed, VideoMetadata
 
 def read_rss(filename) -> Tuple[Feed, VideoMetadata]:
     """

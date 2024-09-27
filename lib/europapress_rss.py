@@ -2,9 +2,9 @@ import tempfile
 import urllib
 import urllib.request
 import urllib.error
-from lib.rss import generate_rss
-from lib.rss_reader import read_rss_string
-from lib.videometadata import Feed, Movie
+from .rss import generate_rss
+from .rss_reader import read_rss_string
+from .videometadata import Feed, Movie
 
 feeds = [
     ("https://newsml.europapress.net/videos.aspx?usrId=bAWeK5SXmH&chnId=2","Sucesos"),
