@@ -1,9 +1,8 @@
-from videometadata import Movie, Episode, Feed
-from test_data import generate_test_data
-from typing import List
 import xml.etree.ElementTree as ET
+from typing import List
 from xml.dom import minidom
 from datetime import datetime
+from lib.videometadata import Movie, Episode, Feed
 
 def defaults(value, default):
     return value if value not in [None, ""] else default
@@ -161,8 +160,3 @@ def write_rss(filename: str, episodes: List[Episode], movies: List[Movie], feed:
     rss_xml = generate_rss(episodes, movies, feed)
     with open(filename, "w") as file:
         file.write(rss_xml)
-
-if __name__ == "__main__":
-    feed = Feed("Test Feed", "A test feed", "news", "TestProvider")
-    movies, episodes = generate_test_data()
-    write_rss("rss.xml",episodes, movies, feed)

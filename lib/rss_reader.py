@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET  
-from videometadata import Feed, VideoMetadata
 from typing import Tuple
 from datetime import datetime
+from lib.videometadata import Feed, VideoMetadata
 
 def read_rss(filename) -> Tuple[Feed, VideoMetadata]:
     """
@@ -11,6 +11,19 @@ def read_rss(filename) -> Tuple[Feed, VideoMetadata]:
     :return: Parsed RSS feed as an ElementTree Element.
     """
     tree = ET.parse(filename)
+    return parse_tree(tree)
+
+def read_rss_string(rss_string) -> Tuple[Feed, VideoMetadata]:
+    """
+    Reads an RSS string and returns the parsed feed.
+    
+    :param rss_string: The RSS string.
+    :return: Parsed RSS feed as an ElementTree Element.
+    """
+    tree = ET.ElementTree(ET.fromstring(rss_string))
+    return parse_tree(tree)
+
+def parse_tree(tree) -> Tuple[Feed, VideoMetadata]:
     root = tree.getroot()
 
     feed = Feed(
