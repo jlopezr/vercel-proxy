@@ -3,6 +3,10 @@
     {
       "source": "/EuropaPress.rss",
       "destination": "/api/EuropaPress.rss"
+    },
+    {
+      "source": "/Efe.rss",
+      "destination": "/api/Efe.rss"
     }
   ]
 }
